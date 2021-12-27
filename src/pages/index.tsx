@@ -1,9 +1,16 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import useSWR from "swr";
+import PageTitle from "../components/PageTitle";
+
+const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json());
 
 const Home: NextPage = () => {
+  const { data, error } = useSWR("/api/get-promo", fetcher);
+
   return (
     <div>
+      <PageTitle title="Bem-Vindo" />
       <p className="mt-12 text-center">
         O estabelecimento X sempre preza pela qualidade no atendimento aos seus
         clientes.
@@ -19,7 +26,10 @@ const Home: NextPage = () => {
         </Link>
       </div>
 
-      <p className="mt-12 text-center">Mensagem do desconto.</p>
+      {!data && <p className="mt-12 text-center">Carregando..</p>}
+      {!error && data && data.showCoupon && (
+        <p className="mt-12 text-center">{data.message}</p>
+      )}
     </div>
   );
 };
