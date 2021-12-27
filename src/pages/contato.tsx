@@ -1,16 +1,11 @@
 import type { NextPage } from "next";
-import Link from "next/link";
+import PageTitle from "../components/PageTitle";
 
 const Contato: NextPage = () => {
   return (
     <div>
+      <PageTitle title="Contato" />
       <h1>Contato</h1>
-
-      <div>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </div>
     </div>
   );
 };
