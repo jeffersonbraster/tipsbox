@@ -1,7 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
-//import { fromBase64 } from '../../utils/base64'
+import { fromBase64 } from "../../utils/parseFrom64";
 import type { NextApiRequest, NextApiResponse } from "next";
-
 import { GoogleSpreadsheet } from "google-spreadsheet";
 
 const doc = new GoogleSpreadsheet(process.env.SHEET_DOC_ID as string);
@@ -15,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   try {
     await doc.useServiceAccountAuth({
       client_email: process.env.SHEET_CLIENT_EMAIL as string,
-      private_key: process.env.SHEET_PRIVATE_KEY as string,
+      private_key: fromBase64(process.env.SHEET_PRIVATE_KEY),
     });
     await doc.loadInfo();
 
