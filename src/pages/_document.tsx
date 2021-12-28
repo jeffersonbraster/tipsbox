@@ -2,6 +2,7 @@ import Document, {
   DocumentContext,
   Html,
   Main,
+  Head,
   NextScript,
 } from "next/document";
 import Analytics from "../components/Analytics";
@@ -16,6 +17,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-BR">
+        <Head />
         <body>
           <Main />
           <NextScript />
