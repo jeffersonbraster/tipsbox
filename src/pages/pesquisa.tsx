@@ -73,12 +73,12 @@ const Pesquisa: NextPage = () => {
       </p>
 
       {!success && (
-        <div className="w-1/5 mx-auto">
+        <div className="text-center mx-auto">
           <label className="font-bold" htmlFor="name">
             Seu nome:
           </label>
           <input
-            className="p-4 block bg-blue-100 shadow my-2 rounded"
+            className="p-4 block bg-blue-100 shadow my-2 rounded mx-auto"
             type="text"
             id="name"
             placeholder="Seu nome"
@@ -91,7 +91,7 @@ const Pesquisa: NextPage = () => {
             Seu E-mail:
           </label>
           <input
-            className="p-4 block bg-blue-100 shadow my-2 rounded"
+            className="p-4 block bg-blue-100 shadow my-2 rounded mx-auto"
             type="email"
             id="email"
             placeholder="Seu E-mail"
@@ -104,7 +104,7 @@ const Pesquisa: NextPage = () => {
             Celular:
           </label>
           <input
-            className="p-4 block bg-blue-100 shadow my-2 rounded"
+            className="p-4 block bg-blue-100 shadow my-2 rounded mx-auto"
             type="text"
             id="phone"
             placeholder="Seu celular"
@@ -114,13 +114,13 @@ const Pesquisa: NextPage = () => {
           />
 
           <label className="font-bold">Nota:</label>
-          <div className="flex py-6">
+          <div className="flex py-6 w-32 m-auto">
             {notas.map((nota) => {
               return (
                 <label
-                  className="block w-1/6 text-center"
                   key={nota}
                   htmlFor={nota.toString()}
+                  className="container"
                 >
                   {nota} <br />
                   <input
@@ -145,7 +145,7 @@ const Pesquisa: NextPage = () => {
       )}
 
       {success && (
-        <div className="w-1/5 mx-auto">
+        <div className="mx-auto">
           <p className="text-center bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3">
             Obrigado por contribuir com sua sugestão ou crítica, foi muito
             importante.
